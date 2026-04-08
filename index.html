@@ -8,14 +8,23 @@
   <p>이건 GitHub로 만든 무료 사이트입니다 😊</p>
 
   <!-- 🔽 여기 추가 -->
-  <button onclick="copyCommand()">프로그램 실행 명령 복사</button>
-
+  <button onclick="Register_kill_exe()">접-kill-exe</button>
+  <button onclick="okchart_kill_exe()">원-kill-exe</button>
+  
   <script>
-  function copyCommand() {
+  function Register_kill_exe() {
     const text = 'Stop-Process -Name "Register" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\Register.exe"';
-    
     navigator.clipboard.writeText(text).then(function() {
-      alert("복사 완료! PowerShell에 붙여넣기 하세요 👍");
+    alert("복사 완료!");
+    }, function(err) {
+      alert("복사 실패 😢");
+    });
+  }
+
+  function okchart_kill_exe() {
+    const text = 'Stop-Process -Name "OKChart" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\OKChart.exe"';
+    navigator.clipboard.writeText(text).then(function() {
+    alert("복사 완료!");
     }, function(err) {
       alert("복사 실패 😢");
     });
