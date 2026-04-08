@@ -1,85 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>setup tool</title>
-</head>
-<body style="display:none;">
+<body>
 
-<script>
-const password = "001075";
-let input = prompt("비밀번호 입력");
+<!-- 🔐 로그인 화면 -->
+<div id="loginBox" style="text-align:center; margin-top:100px;">
+  <h2>🔒 관리자 페이지</h2>
+  <input type="password" id="pw" placeholder="비밀번호" style="padding:10px; font-size:16px;">
+  <br><br>
+  <button onclick="checkPassword()" style="padding:10px 20px;">접속</button>
+</div>
 
-if (input === password) {
-  document.body.style.display = "block";
-} else {
-  alert("접근 불가!");
-}
-</script>
-  <h1>setup tool</h1>
-  <p>This is the administrator setup tool screen.</p>
+<!-- 🔽 실제 내용 (숨김 상태) -->
+<div id="content" style="display:none; text-align:center;">
 
-  <!-- 🔽 여기 추가 -->
-  <button onclick="Register_kill_exe()" style="background-color: blue; color: white; padding:10px; border:none; border-radius:5px;">접-kill-exe</button>
-  <button onclick="okchart_kill_exe()" style="background-color: green; color: white; padding:10px; border:none; border-radius:5px;">원-kill-exe</button>
-  <br>
-  <br>
-  <button onclick="openControlPanel()">제어판 열기</button>
-  <button onclick="openAllTools()" >절전모드 열기</button>
+  <h2>관리 도구</h2>
 
-  <a href="https://drive.google.com/uc?export=download&id=1wdTqgkUfdWsV6nXpoIycosqdjqVcHweu" download>
-    <button>다운로드</button>
+  <!-- 실행 버튼 -->
+  <button onclick="Register_kill_exe()" style="background-color: blue; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
+    접-kill-exe
+  </button>
+
+  <button onclick="okchart_kill_exe()" style="background-color: green; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
+    원-kill-exe
+  </button>
+
+  <br><br>
+
+  <!-- 제어판 -->
+  <button onclick="openControlPanel()" style="padding:10px; margin:5px;">
+    제어판 열기
+  </button>
+
+  <button onclick="openAllTools()" style="padding:10px; margin:5px;">
+    절전모드 열기
+  </button>
+
+  <br><br>
+
+  <!-- 다운로드 -->
+  <a href="https://drive.google.com/uc?export=download&id=1wdTqgkUfdWsV6nXpoIycosqdjqVcHweu">
+    <button style="padding:10px; background-color: orange; color:white; border:none; border-radius:5px;">
+      프로그램 다운로드
+    </button>
   </a>
-  
-  <script>
-  function Register_kill_exe() {
-    const text = 'Stop-Process -Name "Register" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\Register.exe"';
-    navigator.clipboard.writeText(text).then(function() {
-    alert("복사 완료!");
-    }, function(err) {
-      alert("복사 실패 😢");
-    });
-  }
 
-  function okchart_kill_exe() {
-    const text = 'Stop-Process -Name "OKChart" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\OKChart.exe"';
-    navigator.clipboard.writeText(text).then(function() {
-    alert("복사 완료!");
-    }, function(err) {
-      alert("복사 실패 😢");
-    });
-  }
+</div>
 
-  function openControlPanel() {
-    const text = 'control';
-    navigator.clipboard.writeText(text).then(function() {
-    alert("복사 완료!");
-    }, function(err) {
-      alert("복사 실패 😢");
-    });
-  }
+<!-- 🔧 스크립트 -->
+<script>
 
-  function openAllTools() {
-    const text = `
-  Start-Process control.exe -ArgumentList "/name Microsoft.NetworkAndSharingCenter /page Advanced";
-  Start-Process control.exe -ArgumentList "/name Microsoft.UserAccounts";
-  Start-Process devmgmt.msc;
-  Start-Process powercfg.cpl;
-    `.trim();
-  
-    navigator.clipboard.writeText(text).then(function() {
-      alert("복사 완료! PowerShell에 붙여넣기 👍");
-    }, function(err) {
-      alert("복사 실패 😢");
-    });
-  }
+// 🔐 비밀번호 체크
+function checkPassword() {
+  const password = "1234"; // 👉 원하는 비번으로 변경
+  const input = document.getElementById("pw").value;
 
-    
-  </script>
-  <!-- 🔼 여기까지 추가 -->
+  if (input === password) {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  } else {
+    alert("비밀번호 틀림!");
+  }
+}
+
+// 🔵 Register 실행
+function Register_kill_exe() {
+  const text = 'Stop-Process -Name "Register" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\Register.exe"';
+  navigator.clipboard.writeText(text);
+  alert("복사 완료!");
+}
+
+// 🟢 OKChart 실행
+function okchart_kill_exe() {
+  const text = 'Stop-Process -Name "OKChart" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\OKChart.exe"';
+  navigator.clipboard.writeText(text);
+  alert("복사 완료!");
+}
+
+// 🟡 제어판
+function openControlPanel() {
+  navigator.clipboard.writeText("control");
+  alert("복사 완료!");
+}
+
+// 🟣 절전모드
+function openAllTools() {
+  const text = 'Start-Process powercfg.cpl';
+  navigator.clipboard.writeText(text);
+  alert("복사 완료!");
+}
+
+</script>
 
 </body>
-</html>
-
-
-
-
