@@ -1,4 +1,4 @@
-<body>
+<body onload="document.getElementById('pw').focus();">
 
 <!-- 🔐 로그인 화면 -->
 
@@ -11,7 +11,7 @@
 
 
   <h2>🔒 관리자 페이지</h2>
-  <input type="password" id="pw" placeholder="비밀번호" style="padding:10px; font-size:16px;">
+  <input type="password" id="pw" placeholder="비밀번호" style="padding:10px; font-size:16px; onkeydown="if(event.key === 'Enter') checkPassword();">
   <br><br>
   <button onclick="checkPassword()" style="padding:10px 20px;">접속</button>
 </div>
