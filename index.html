@@ -10,6 +10,10 @@
   <!-- 🔽 여기 추가 -->
   <button onclick="Register_kill_exe()" style="background-color: blue; color: white; padding:10px; border:none; border-radius:5px;">접-kill-exe</button>
   <button onclick="okchart_kill_exe()" style="background-color: green; color: white; padding:10px; border:none; border-radius:5px;">원-kill-exe</button>
+  <br>
+  <button onclick="openControlPanel()">
+  <br>
+
   
   <script>
   function Register_kill_exe() {
@@ -23,6 +27,15 @@
 
   function okchart_kill_exe() {
     const text = 'Stop-Process -Name "OKChart" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\OKChart.exe"';
+    navigator.clipboard.writeText(text).then(function() {
+    alert("복사 완료!");
+    }, function(err) {
+      alert("복사 실패 😢");
+    });
+  }
+
+  function openControlPanel() {
+    const text = 'control';
     navigator.clipboard.writeText(text).then(function() {
     alert("복사 완료!");
     }, function(err) {
