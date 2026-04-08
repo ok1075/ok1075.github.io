@@ -11,7 +11,8 @@
   <button onclick="Register_kill_exe()" style="background-color: blue; color: white; padding:10px; border:none; border-radius:5px;">접-kill-exe</button>
   <button onclick="okchart_kill_exe()" style="background-color: green; color: white; padding:10px; border:none; border-radius:5px;">원-kill-exe</button>
   <br>
-  <button onclick="openControlPanel()">
+  <button onclick="openControlPanel()">제어판 열기</button>
+  <button onclick="openAllTools()" >절전모드 열기</button>
 
 
   
@@ -42,9 +43,29 @@
       alert("복사 실패 😢");
     });
   }
+
+  function openAllTools() {
+    const text = `
+  Start-Process control.exe -ArgumentList "/name Microsoft.NetworkAndSharingCenter /page Advanced";
+  Start-Process control.exe -ArgumentList "/name Microsoft.UserAccounts";
+  Start-Process devmgmt.msc;
+  Start-Process powercfg.cpl;
+    `.trim();
+  
+    navigator.clipboard.writeText(text).then(function() {
+      alert("복사 완료! PowerShell에 붙여넣기 👍");
+    }, function(err) {
+      alert("복사 실패 😢");
+    });
+  }
+
     
   </script>
   <!-- 🔼 여기까지 추가 -->
 
 </body>
 </html>
+
+
+
+
