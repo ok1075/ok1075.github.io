@@ -14,8 +14,16 @@
   <h2>관리 도구</h2>
 
   <!-- 실행 버튼 -->
+  <button onclick="Register_dell_kill_exe()" style="background-color: blue; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
+    접-kill-exe
+  </button>
+  
   <button onclick="Register_kill_exe()" style="background-color: blue; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
     접-kill-exe
+  </button>
+
+  <button onclick="okchart_dell_kill_exe()" style="background-color: green; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
+    원-kill-exe
   </button>
 
   <button onclick="okchart_kill_exe()" style="background-color: green; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
@@ -23,11 +31,6 @@
   </button>
 
   <br><br>
-
-  <!-- 제어판 -->
-  <button onclick="openControlPanel()" style="padding:10px; margin:5px;">
-    제어판 열기
-  </button>
 
   <button onclick="openAllTools()" style="padding:10px; margin:5px;">
     절전모드 열기
@@ -65,33 +68,39 @@ function checkPassword() {
   }
 }
 
+// 🔵 Register dell 실행
+function Register_dell_kill_exe() {
+  const text = 'Stop-Process -Name "Register" -Force -ErrorAction SilentlyContinue; Remove-Item "C:\OKChartNET\Program_OKBin\REGSINIT.INI" -ErrorAction SilentlyContinue; & "C:\OKChartNET\Program_OKBin\Register.exe"';
+  navigator.clipboard.writeText(text);
+}
+
 // 🔵 Register 실행
 function Register_kill_exe() {
   const text = 'Stop-Process -Name "Register" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\Register.exe"';
   navigator.clipboard.writeText(text);
-  alert("복사 완료!");
+}
+
+
+
+// 🟢 OKChart dell 실행
+function okchart_dell_kill_exe() {
+  const text = 'Stop-Process -Name "OKChart" -Force -ErrorAction SilentlyContinue; Remove-Item "C:\OKChartNET\Program_OKBin\MAININIT.INI" -ErrorAction SilentlyContinue; & "C:\OKChartNET\Program_OKBin\OKChart.exe"';
+  navigator.clipboard.writeText(text);
 }
 
 // 🟢 OKChart 실행
 function okchart_kill_exe() {
   const text = 'Stop-Process -Name "OKChart" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\OKChart.exe"';
   navigator.clipboard.writeText(text);
-  alert("복사 완료!");
-}
-
-// 🟡 제어판
-function openControlPanel() {
-  navigator.clipboard.writeText("control");
-  alert("복사 완료!");
 }
 
 // 🟣 절전모드
 function openAllTools() {
   const text = 'Start-Process powercfg.cpl';
   navigator.clipboard.writeText(text);
-  alert("복사 완료!");
 }
 
 </script>
 
 </body>
+
