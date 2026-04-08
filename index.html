@@ -1,39 +1,56 @@
 <body>
 
 <!-- 🔐 로그인 화면 -->
+
+
+<!-- 로그인 팝업 -->
 <div id="loginBox" style="text-align:center; margin-top:100px;">
+
+<!-- 로그인 삭제 -->
+<!-- <div id="loginBox" style="display:none;"> -->
+
+
   <h2>🔒 관리자 페이지</h2>
   <input type="password" id="pw" placeholder="비밀번호" style="padding:10px; font-size:16px;">
   <br><br>
   <button onclick="checkPassword()" style="padding:10px 20px;">접속</button>
 </div>
 
+
 <!-- 🔽 실제 내용 (숨김 상태) -->
+
+<!-- 로그인 팝업 -->
 <div id="content" style="display:none; text-align:center;">
 
-  <h2>관리 도구</h2>
+<!-- 로그인 삭제 -->
+<!-- <div id="content" style="display:block; text-align:center;"> -->
 
+
+  <h2>Management Tool</h2>
+  <p style="margin-top:-10px; color:#666;">
+    👉 PowerShell 실행: Windows + X → A
+  </p>
   <!-- 실행 버튼 -->
   <button onclick="Register_dell_kill_exe()" style="background-color: blue; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
-    접-kill-exe
+   Register_dell_kill_exe
   </button>
   
   <button onclick="Register_kill_exe()" style="background-color: blue; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
-    접-kill-exe
+    Register_kill_exe
   </button>
 
   <button onclick="okchart_dell_kill_exe()" style="background-color: green; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
-    원-kill-exe
+    Okchart_dell_kill_exe
   </button>
 
   <button onclick="okchart_kill_exe()" style="background-color: green; color: white; padding:10px; border:none; border-radius:5px; margin:5px;">
-    원-kill-exe
+    Okchart_kill_exe
   </button>
 
   <br><br>
 
   <button onclick="openAllTools()" style="padding:10px; margin:5px;">
-    절전모드 열기
+    Open sleep mode
   </button>
 
   <br><br>
@@ -41,7 +58,7 @@
   <!-- 다운로드 -->
   <a href="https://drive.google.com/uc?export=download&id=1wdTqgkUfdWsV6nXpoIycosqdjqVcHweu">
     <button style="padding:10px; background-color: orange; color:white; border:none; border-radius:5px;">
-      프로그램 다운로드
+      setup tool program download
     </button>
   </a>
 
@@ -103,4 +120,5 @@ function openAllTools() {
 </script>
 
 </body>
+
 
