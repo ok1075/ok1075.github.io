@@ -6,5 +6,22 @@
 <body>
   <h1>안녕하세요!</h1>
   <p>이건 GitHub로 만든 무료 사이트입니다 😊</p>
+
+  <!-- 🔽 여기 추가 -->
+  <button onclick="copyCommand()">프로그램 실행 명령 복사</button>
+
+  <script>
+  function copyCommand() {
+    const text = 'Stop-Process -Name "Register" -Force -ErrorAction SilentlyContinue; & "C:\\OKChartNET\\Program_OKBin\\Register.exe"';
+    
+    navigator.clipboard.writeText(text).then(function() {
+      alert("복사 완료! PowerShell에 붙여넣기 하세요 👍");
+    }, function(err) {
+      alert("복사 실패 😢");
+    });
+  }
+  </script>
+  <!-- 🔼 여기까지 추가 -->
+
 </body>
 </html>
