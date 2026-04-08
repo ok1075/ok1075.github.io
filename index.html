@@ -3,7 +3,18 @@
 <head>
   <title>내 홈페이지</title>
 </head>
-<body>
+<body style="display:none;">
+
+<script>
+const password = "1075";
+let input = prompt("비밀번호 입력");
+
+if (input === password) {
+  document.body.style.display = "block";
+} else {
+  alert("접근 불가!");
+}
+</script>
   <h1>안녕하세요!</h1>
   <p>이건 GitHub로 만든 무료 사이트입니다 😊</p>
 
