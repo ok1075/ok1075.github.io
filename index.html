@@ -1,27 +1,27 @@
-<body onload="document.getElementById('pw').focus();">
 
 <!-- 🔐 로그인 화면 -->
-
-
-<!-- 로그인 팝업 -->
-<div id="loginBox" style="text-align:center; margin-top:100px;">
-
 <!-- 로그인 삭제 -->
 <!-- <div id="loginBox" style="display:none;"> -->
 
+<div id="loginBox" style="text-align:center; margin-top:100px;">
 
   <h2>🔒 관리자 페이지</h2>
-<form onsubmit="checkPassword(); return false;">
-  <input 
-    type="password" 
-    id="pw" 
-    placeholder="비밀번호"
-    style="padding:10px; font-size:16px;"
-    autofocus
-  >
-  <br><br>
-  <button type="submit" style="padding:10px 20px;">접속</button>
-</form>
+
+  <form onsubmit="return checkPassword();">
+    <input 
+      type="password" 
+      id="pw" 
+      placeholder="비밀번호"
+      style="padding:10px; font-size:16px;"
+      autofocus
+    >
+    <br><br>
+
+    <button type="submit" style="padding:10px 20px;">
+      접속
+    </button>
+  </form>
+
 </div>
 
 
