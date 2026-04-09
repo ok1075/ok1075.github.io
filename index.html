@@ -79,17 +79,18 @@
 function checkPassword() {
   const today = new Date();
   let day = today.getDate();
-
   day = day < 10 ? "0" + day : day;
 
-  const password = day + "1075"; // 👉 자동 비밀번호
+  const password = day + "1075";
   const input = document.getElementById("pw").value;
 
   if (input === password) {
     document.getElementById("loginBox").style.display = "none";
     document.getElementById("content").style.display = "block";
+    return false; // 🔥 이거 추가 (새로고침 방지)
   } else {
     alert("비밀번호 틀림!");
+    return false; // 🔥 이것도 추가
   }
 }
 
